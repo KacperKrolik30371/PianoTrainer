@@ -1,0 +1,250 @@
+.dashboard-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #172033;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.85), transparent 26%),
+    linear-gradient(135deg, #a7f3d0 0%, #2dd4bf 45%, #0f766e 100%);
+}
+
+.dashboard-shell::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px) 0 68px / 100% 18px,
+    radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.28), transparent 18%);
+  content: "";
+  pointer-events: none;
+}
+
+.dashboard-shell > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.dashboard-kicker,
+.mode-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: white;
+  background: #111827;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.dashboard-header h1,
+.game-card h2 {
+  margin: 8px 0 4px;
+  letter-spacing: 0;
+}
+
+.dashboard-header p {
+  margin: 0;
+  max-width: 620px;
+}
+
+.panel {
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.54);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+  animation: dashboard-rise 0.42s ease both;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.24);
+}
+
+.panel .card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panel span,
+.game-card p {
+  color: #5f6b7c;
+}
+
+.panel strong {
+  color: #111827;
+  font-size: 1.45rem;
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  position: absolute;
+  right: -22px;
+  bottom: -28px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  content: "";
+  opacity: 0.16;
+}
+
+.stat-levels::after {
+  background: #22c55e;
+}
+
+.stat-average::after {
+  background: #2563eb;
+}
+
+.stat-rhythm::after {
+  background: #f97316;
+}
+
+.stat-midi::after {
+  background: #111827;
+}
+
+.stat-card .card-body {
+  min-height: 112px;
+}
+
+.game-card .card-body {
+  min-height: 292px;
+}
+
+.mode-visual {
+  position: relative;
+  height: 86px;
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    linear-gradient(#cbd5e1 1px, transparent 1px) 0 24px / 100% 12px,
+    linear-gradient(120deg, #f8fafc, #eefcf8);
+}
+
+.mode-visual::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 65%, #22c55e 0 8px, transparent 9px),
+    radial-gradient(circle at 36% 52%, #22c55e 0 8px, transparent 9px),
+    radial-gradient(circle at 58% 40%, #22c55e 0 8px, transparent 9px),
+    radial-gradient(circle at 78% 28%, #22c55e 0 8px, transparent 9px);
+  content: "";
+  animation: notes-breathe 2.4s ease-in-out infinite;
+}
+
+.rhythm-mode .mode-visual::before {
+  background:
+    radial-gradient(circle at 24% 58%, #2563eb 0 8px, transparent 9px),
+    radial-gradient(circle at 48% 45%, #2563eb 0 8px, transparent 9px),
+    radial-gradient(circle at 72% 34%, #2563eb 0 8px, transparent 9px);
+}
+
+.rhythm-mode .mode-visual::after {
+  position: absolute;
+  top: 14px;
+  bottom: 14px;
+  left: 50%;
+  width: 3px;
+  background: #ef4444;
+  content: "";
+}
+
+.mini-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #4b5563;
+  font-weight: 700;
+}
+
+.dashboard-shell .btn {
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+.dashboard-shell .btn-primary {
+  border: 0;
+  background: linear-gradient(135deg, #2563eb, #0f766e);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.22);
+}
+
+.logout-btn {
+  padding: 7px 15px;
+  color: #111827;
+}
+
+.training-summary h2 {
+  margin-bottom: 4px;
+}
+
+.progress-box {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.progress-box > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.progress {
+  height: 12px;
+  background: #e5e7eb;
+}
+
+.progress-bar {
+  transition: width 0.75s ease;
+}
+
+@keyframes dashboard-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes notes-breathe {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@media (max-width: 800px) {
+  .dashboard-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
