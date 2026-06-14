@@ -36,9 +36,3 @@ Należy utworzyć bazę PostgreSQL o nazwie:
 ```sql
 pianotrainer
 ```
-
-lub zaimportować plik:
-
-```text
-PianoTrainer.session.sql
-```
